@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Facturacion Electronica</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="navigation_drawer_open">Abrir menú</string>
+    <string name="navigation_drawer_close">Cerrar menú</string>
+    <string name="facturacion_electronica">Facturación Electronica</string>
+    <string name="inventario">Inventario</string>
+    <string name="reportes">Reportes</string>
+    <string name="clientes">Clientes</string>
+    <string name="proveedores">Proveedores</string>
+    <string name="facturaci_n">Facturación</string>
+    <string name="iniciar_sesi_n">Iniciar sesión</string>
+    <string name="texto_largo">texto largo</string>
+    <string name="emisor">Emisor</string>
+    <string name="nota_de_credito">Nota de Credito</string>
+    <string name="informacion">Información</string>
+</resources>
