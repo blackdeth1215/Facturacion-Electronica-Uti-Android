@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".InformationActivity">
+
+    <!-- Creador -->
+    <TextView
+        android:id="@+id/textViewCreador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Creador: Eric John Mera Eugenio"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp" />
+
+    <!-- Copyright -->
+    <TextView
+        android:id="@+id/textViewCopyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Copyright: 2024"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp" />
+
+    <!-- Proyecto -->
+    <TextView
+        android:id="@+id/textViewProyecto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proyecto Integrador 2024 - 2025"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp" />
+
+    <!-- Coordinadores -->
+    <TextView
+        android:id="@+id/textViewCoordinadoresTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coordinadores Implicados para el Proyecto:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewCoordinador1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mgtr. Ing. Jenny León Toro"
+        android:textSize="16sp"
+        android:textColor="#555555"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/textViewCoordinador2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mgtr. Fátima Avilés Castillo"
+        android:textSize="16sp"
+        android:textColor="#555555"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/textViewCoordinador3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mgtr. Franklin Castillo"
+        android:textSize="16sp"
+        android:textColor="#555555"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/textViewCoordinador4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mgtr. Ing. Jorge Luis Buele León"
+        android:textSize="16sp"
+        android:textColor="#555555"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/textViewCoordinador5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mgtr. Tipantasig Jose Ruben"
+        android:textSize="16sp"
+        android:textColor="#555555"
+        android:paddingBottom="4dp" />
+</LinearLayout>

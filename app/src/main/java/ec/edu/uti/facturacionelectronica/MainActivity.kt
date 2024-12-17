@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_informacion -> showToast("Informacion")
                 R.id.nav_reportes -> showToast("Reportes")
                 R.id.nav_clientes -> showToast("Clientes")
-                R.id.nav_not_credito -> showToast("Nota de Crédito")
                 R.id.nav_facturacion -> showToast("Facturación")
                 R.id.nav_iniciar_sesion -> showToast("Iniciar sesión")
             }
@@ -66,16 +65,6 @@ class MainActivity : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

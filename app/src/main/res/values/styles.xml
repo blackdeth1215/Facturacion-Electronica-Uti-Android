@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomNavigationView" parent="Widget.Design.NavigationView">
+        <item name="android:background">@color/purple</item>
+        <item name="itemIconTint">@color/white</item> <!-- Color de los íconos -->
+        <item name="itemTextColor">@color/white</item> <!-- Color del texto -->
+    </style>
+</resources>
