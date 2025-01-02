@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/emisor" />
+
+        <EditText
+            android:id="@+id/txtEmiRuc"
+            android:layout_width="179dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autofillHints="name"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/ruc"
+            android:textColorHint="@color/orange"
+            android:textAlignment="center" />
+        <EditText
+            android:id="@+id/txtEmiName"
+            android:layout_width="179dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autofillHints="name"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/razSoc"
+            android:textColorHint="@color/orange"
+            android:textAlignment="center" />
+        <EditText
+            android:id="@+id/txtEmiDirec"
+            android:layout_width="179dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autofillHints="name"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/direccion"
+            android:textColorHint="@color/orange"
+            android:textAlignment="center" />
+        <EditText
+            android:id="@+id/txtEmiCorr"
+            android:layout_width="179dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autofillHints="name"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/correo"
+            android:textColorHint="@color/orange"
+            android:textAlignment="center" />
+        <EditText
+            android:id="@+id/txtEmiTel"
+            android:layout_width="179dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autofillHints="name"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/telefono"
+            android:textColorHint="@color/orange"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="117dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/orange"
+            android:layout_marginTop="20dp"
+            android:text="@string/editar" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

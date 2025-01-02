@@ -10,13 +10,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FacturacionElectronica"
+        android:theme="@style/Theme.Utifact"
         tools:targetApi="31">
         <activity
-            android:name=".InformationActivity"
+            android:name=".ui.ClientesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.UserActivity"
             android:exported="false" />
         <activity
             android:name=".ui.AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.HelpActivity"
             android:exported="false" />
         <activity
             android:name=".ui.LoginActivity"
@@ -28,9 +34,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.FacturacionElectronica" />
+            android:name=".ui.MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

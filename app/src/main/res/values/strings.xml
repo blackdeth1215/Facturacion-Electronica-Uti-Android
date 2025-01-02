@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Facturacion Electronica</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
@@ -11,6 +10,7 @@
     <string name="facturacion_electronica">Facturación Electronica</string>
     <string name="inventario">Inventario</string>
     <string name="reportes">Reportes</string>
+    <string name="productos">Productos</string>
     <string name="clientes">Clientes</string>
     <string name="proveedores">Proveedores</string>
     <string name="facturaci_n">Facturación</string>
@@ -23,4 +23,37 @@
     <string name="contrase_a">Contraseña</string>
     <string name="logoimg">logoimg</string>
     <string name="ingresar">INGRESAR</string>
+    <string name="usuarios">Usuarios</string>
+    <string name="bienfact">Bienvenido a la facturacion electronica</string>
+    <string name="factudetails">
+    Proyecto formativo de facturación electrónica desarrollado en colaboración con la Universidad Indoamérica, enfocado en proporcionar una solución eficiente y práctica para la gestión de comprobantes electrónicos. Este proyecto tiene como objetivo principal fomentar el aprendizaje de herramientas tecnológicas avanzadas, integrando conocimientos académicos y aplicándolos en entornos reales.
+</string>
+    <string name="img1">img1</string>
+    <string name="ingresoCl">Ingreso de Clientes</string>
+    <string name="Bus_ced_ruc">Cedula / Ruc</string>
+    <string name="buscar">Buscar</string>
+    <string name="agregar">Agregar</string>
+    <string name="cliente">Cliente</string>
+    <string name="edit_client">edit client</string>
+    <string name="delete_client">delete client</string>
+    <string name="codProd">Codigo de producto</string>
+    <string name="ingreProd">Ingreso de Productos</string>
+    <string name="producto">Producto</string>
+    <string name="stock">Stock</string>
+    <string name="ingreUsu">Ingreso de Usuarios</string>
+    <string name="nombre">Nombre:</string>
+    <string name="cedula">Cedula:</string>
+    <string name="total">Total:</string>
+    <string name="subtotal">SubTotal:</string>
+    <string name="iva_12">IVA(12%):</string>
+    <string name="facturar">Facturar</string>
+    <string name="BusRep">Busqueda de Reportes</string>
+    <string name="NumFact">Num Factura</string>
+    <string name="Nfact">Factura#001</string>
+    <string name="ruc">RUC</string>
+    <string name="razSoc">Razon Social</string>
+    <string name="direccion">Direccion</string>
+    <string name="correo">Correo Electronico</string>
+    <string name="telefono">Telefono</string>
+    <string name="editar">Editar</string>
 </resources>

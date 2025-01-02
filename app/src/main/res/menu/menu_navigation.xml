@@ -4,6 +4,10 @@
         android:title="@string/clientes"
         android:icon="@drawable/clientes_add" />
     <item
+        android:id="@+id/nav_productos"
+        android:title="@string/productos"
+        android:icon="@drawable/baseline_all_inbox_24" />
+    <item
         android:id="@+id/nav_facturacion"
         android:title="@string/facturaci_n"
         android:icon="@drawable/factura_add" />
