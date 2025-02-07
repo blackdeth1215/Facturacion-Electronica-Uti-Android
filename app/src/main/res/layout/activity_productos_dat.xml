@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:padding="@dimen/activity_padding"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_toplog"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etxtCodProd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:hint="@string/codigo_de_producto"
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textColorHint="@color/orange" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_toplog"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etxtNomProd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:hint="@string/descripcion_de_producto"
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textColorHint="@color/orange" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_toplog"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etxtProveProd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:hint="@string/proveedor"
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textColorHint="@color/orange" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_toplog"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etxtStockProd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:hint="@string/stock"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textColorHint="@color/orange" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_toplog"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etxtPrecioProd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:hint="@string/precio"
+                android:inputType="numberDecimal"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textColorHint="@color/orange" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_margin_top_activityregu"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnGuardarProd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/orange"
+            android:textColor="@color/white"
+            android:text="@string/guardar_actualizar" />
+
+        <Button
+            android:id="@+id/btnCancelarProd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/orange"
+            android:textColor="@color/white"
+            android:text="@string/cancelar" />
+    </LinearLayout>
+</LinearLayout>

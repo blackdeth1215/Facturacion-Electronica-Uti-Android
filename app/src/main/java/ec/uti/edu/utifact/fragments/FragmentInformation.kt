@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ec.uti.edu.utifact.R
+import ec.uti.edu.utifact.ui.AdminActivity
 
 
 class FragmentInformation : Fragment() {
@@ -14,5 +15,9 @@ class FragmentInformation : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.activity_help, container, false)
+    }
+    override fun onResume() {
+        super.onResume()
+        (activity as? AdminActivity)?.setFragmentTitle("Informacion")
     }
 }

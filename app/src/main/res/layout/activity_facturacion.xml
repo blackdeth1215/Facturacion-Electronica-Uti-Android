@@ -7,39 +7,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
+        android:padding="@dimen/activity_padding"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="@string/facturacion_electronica" />
-
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="47dp"
+            android:weightSum="3"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/txtCedRbF"
-                android:layout_width="179dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:textAlignment="center"
-                android:textColorHint="@color/orange"
-                android:textColor="@color/black"
-                android:inputType="number"
-                android:hint="@string/Bus_ced_ruc" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_toplog"
+                android:layout_weight="3"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtCedRbF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/Bus_ced_ruc"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/orange" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnBclF"
-                android:layout_width="117dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="#F47121"
+                android:layout_weight="2"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/orange"
                 android:text="@string/buscar" />
         </LinearLayout>
 
@@ -47,36 +48,69 @@
             android:id="@+id/txtNombusF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/nombre" />
         <TextView
             android:id="@+id/txtCedbusF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/cedula" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:weightSum="6"
             android:orientation="horizontal">
-            <EditText
-                android:id="@+id/txtProdRbF"
-                android:layout_width="179dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:textAlignment="center"
-                android:textColorHint="@color/orange"
-                android:textColor="@color/black"
-                android:inputType="number"
-                android:hint="@string/codProd" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_toplog"
+                android:layout_weight="2"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtProdRbF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/codProd"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/orange" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <Spinner
+                android:id="@+id/spinnerProductos"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:prompt="@string/selecciona_producto" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_toplog"
+                android:layout_weight="4"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtCantRbF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/cantidad"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/orange" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnProF"
-                android:layout_width="117dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="#F47121"
-                android:text="@string/buscar" />
+                android:layout_weight="0"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/orange"
+                android:text="@string/agregar" />
         </LinearLayout>
 
         <LinearLayout
@@ -103,17 +137,18 @@
             android:textColor="@color/black"
             android:text="@string/iva_12" />
         <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txtTotalF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
             android:textColor="@color/black"
         android:text="@string/total" />
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="117dp"
+            android:id="@+id/btnFacturar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#F47121"
+            android:backgroundTint="@color/orange"
+            android:textColor="@color/white"
             android:text="@string/facturar" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

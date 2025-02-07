@@ -1,8 +1,13 @@
 package ec.uti.edu.utifact.ui
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -14,28 +19,38 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.navigateUp
 import com.google.android.material.navigation.NavigationView
 import ec.edu.uti.facturacionelectronica.fragments.FragmentFirst
 import ec.edu.uti.facturacionelectronica.fragments.FragmentInformation
 import ec.uti.edu.utifact.R
-import ec.uti.edu.utifact.database
+import ec.uti.edu.utifact.database.AppDatabase
+import ec.uti.edu.utifact.databasebd
 import ec.uti.edu.utifact.fragments.FragmentClient
+import ec.uti.edu.utifact.fragments.FragmentEdAcCliente
+import ec.uti.edu.utifact.fragments.FragmentEdAcProducto
+import ec.uti.edu.utifact.fragments.FragmentEdAcUser
+import ec.uti.edu.utifact.fragments.FragmentEmisor
 import ec.uti.edu.utifact.fragments.FragmentFacturar
 import ec.uti.edu.utifact.fragments.FragmentProducto
+import ec.uti.edu.utifact.fragments.FragmentReport
 import ec.uti.edu.utifact.fragments.FragmentUser
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AdminActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var drawerLayout: DrawerLayout
-    val dbHelper = database(this)
+    private var fragmentTitle: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_admin)
 
-        dbHelper.checkLoginState(this)
+
         val toolbar = findViewById<Toolbar>(R.id.toolbar) // Toolbar
         setSupportActionBar(toolbar)
 
@@ -69,7 +84,12 @@ class AdminActivity : AppCompatActivity() {
                         .addToBackStack(null)
                         .commit()
                 }
-                R.id.nav_reportes -> showToast("Reportes")
+                R.id.nav_reportes -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, FragmentReport())
+                        .addToBackStack(null)
+                        .commit()
+                }
                 R.id.nav_productos ->{
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, FragmentProducto())
@@ -92,12 +112,15 @@ class AdminActivity : AppCompatActivity() {
 
                     true
                 }
+                R.id.nav_emisor ->{
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, FragmentEmisor())
+                        .addToBackStack(null)
+                        .commit()
+                }
                 R.id.nav_iniciar_sesion -> {
-                    dbHelper.logout(this)
-                    val intent = Intent(this, LoginActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-                    finish()
+                    val login = Intent(this, LoginActivity::class.java)
+                    startActivity(login)
                 }
             }
             drawerLayout.closeDrawer(GravityCompat.START)
@@ -113,9 +136,7 @@ class AdminActivity : AppCompatActivity() {
         navigationView.setBackgroundColor(ContextCompat.getColor(this, R.color.purple))
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.purple))
     }
-
-
-
+    
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
@@ -135,5 +156,97 @@ class AdminActivity : AppCompatActivity() {
         } else {
             super.onBackPressed()
         }
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        val addItem = menu.findItem(R.id.action_add)
+
+        for (i in 0 until menu.size()) {
+            val menuItem = menu.getItem(i)
+            val spannableTitle = SpannableString(menuItem.title)
+            spannableTitle.setSpan(ForegroundColorSpan(Color.WHITE), 0, spannableTitle.length, 0)
+            menuItem.title = spannableTitle
+        }
+        // Cambiar el título del ítem de acuerdo al fragmento actual
+//        addItem.title = when (fragmentTitle) {
+//            "Productos" -> "Agregar Producto"
+//            "Clientes" -> "Agregar Cliente"
+//            "Usuarios" -> "Agregar Usuario"
+//            else -> "Agregar"
+//        }
+        when (fragmentTitle) {
+            "Productos" -> {
+                addItem.title = null // Elimina el texto
+                addItem.setIcon(R.drawable.baseline_add_24) // Asigna el ícono para "Productos"
+            }
+            "Clientes" -> {
+                addItem.title = null // Elimina el texto
+                addItem.setIcon(R.drawable.baseline_add_24) // Asigna el ícono para "Clientes"
+            }
+            "Usuarios" -> {
+                addItem.title = null // Elimina el texto
+                addItem.setIcon(R.drawable.baseline_add_24) // Asigna el ícono para "Usuarios"
+            }
+            else -> {
+                addItem.title = null
+                addItem.setIcon(null) // Remueve el ícono si no es relevante
+            }
+        }
+
+        return super.onPrepareOptionsMenu(menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_add -> {
+                when (fragmentTitle) {
+                    "Productos" -> {
+                        // Acción para agregar producto
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, FragmentEdAcProducto())
+                            .addToBackStack(null)
+                            .commit()
+                    }
+                    "Clientes" -> {
+                        // Acción para agregar cliente
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, FragmentEdAcCliente())
+                            .addToBackStack(null)
+                            .commit()
+                    }
+                    "Usuarios" -> {
+                        // Acción para agregar usuario
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, FragmentEdAcUser())
+                            .addToBackStack(null)
+                            .commit()
+                    }
+                    "Reportes de facturas"->{
+                        // Acción para cambiar de facturas a usuarios
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, FragmentEdAcUser())
+                            .addToBackStack(null)
+                            .commit()
+                    }
+                    "Reportes de Usuarios"->{
+                        // Acción para cambiar de usuarios a facturas
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, FragmentEdAcUser())
+                            .addToBackStack(null)
+                            .commit()
+                    }
+                    else -> {
+                        Toast.makeText(this, "Agregar acción no definida", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    fun setFragmentTitle(title: String) {
+        supportActionBar?.title = title
+        fragmentTitle = title
+        invalidateOptionsMenu() // Refresca el menú
     }
 }

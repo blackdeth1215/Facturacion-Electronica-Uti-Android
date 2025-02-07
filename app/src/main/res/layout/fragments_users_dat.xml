@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:padding="@dimen/activity_padding"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_toplog"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etxtUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/usuario"
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_toplog"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etxtFecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="true"
+                android:ems="10"
+                android:hint="@string/fecha_de_creacion"
+                android:inputType="date"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_toplog"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etxtFechaEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/fecha_de_caducidad"
+                android:inputType="none"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:focusable="false"
+                android:clickable="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_toplog"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/extPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/contrase_a"
+                android:inputType="textPassword"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_toplog"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/extPassC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/confr_contra"
+                android:inputType="textPassword"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textColorHint="@color/orange"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/spinner_roles"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_margin_top_activityregu"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/orange"
+            android:text="@string/guardar_actualizar" />
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/orange"
+            android:text="@string/cancelar" />
+    </LinearLayout>
+</LinearLayout>

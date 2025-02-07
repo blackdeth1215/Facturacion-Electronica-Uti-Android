@@ -65,27 +65,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:columnCount="2"
-        app:useDefaultMargins="true">
-
-
-        <ImageButton
-            android:src="@drawable/ic_launcher_background"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1" />
-
-        <ImageButton
-            android:src="@drawable/ic_launcher_background"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1" />
-
-        <ImageButton
-            android:src="@drawable/ic_launcher_background"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1" />
-
-        <ImageButton
-            android:src="@drawable/ic_launcher_background"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1" />
-    </androidx.gridlayout.widget.GridLayout>
+        app:useDefaultMargins="true"/>
 </androidx.appcompat.widget.LinearLayoutCompat>

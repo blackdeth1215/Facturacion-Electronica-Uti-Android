@@ -45,7 +45,7 @@
     <string name="cedula">Cedula:</string>
     <string name="total">Total:</string>
     <string name="subtotal">SubTotal:</string>
-    <string name="iva_12">IVA(12%):</string>
+    <string name="iva_12">IVA(15%):</string>
     <string name="facturar">Facturar</string>
     <string name="BusRep">Busqueda de Reportes</string>
     <string name="NumFact">Num Factura</string>
@@ -56,4 +56,32 @@
     <string name="correo">Correo Electronico</string>
     <string name="telefono">Telefono</string>
     <string name="editar">Editar</string>
+    <string name="confr_contra">Confirmar Contraseña</string>
+    <string name="actualizar_crear_usuario">Actualizar/Crear Usuario</string>
+    <string name="guardar_actualizar">Guardar/Actualizar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="codigo_de_producto">Codigo de producto</string>
+    <string name="descripcion_de_producto">Descripcion de producto</string>
+    <string name="proveedor">Proveedor</string>
+    <string name="precio">Precio</string>
+    <string name="fecha_de_creacion">Fecha de creacion</string>
+    <string name="fecha_de_caducidad">Fecha de caducidad</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="selecciona_producto">producto1</string>
+    <string name="sucursal">Sucursal</string>
+    <string name="punto_de_emisi_n">Punto de emisión</string>
+    <string-array name="roles">
+        <item>Seleccionar un rol</item>
+        <item>Administrador</item>
+        <item>Usuario</item>
+    </string-array>
+    <string-array name="productoslist">
+        <item>Seleccionar un producto</item>
+        <item>producto1</item>
+        <item>producto2</item>
+        <item>producto3</item>
+        <item>producto4</item>
+        <item>producto5</item>
+    </string-array>
 </resources>

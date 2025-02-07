@@ -5,16 +5,34 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ec.uti.edu.utifact.R
-import ec.uti.edu.utifact.database
+import ec.uti.edu.utifact.database.AppDatabase
+import ec.uti.edu.utifact.database.databadeentity.Clientebd
+import ec.uti.edu.utifact.database.databadeentity.Emisorbd
+import ec.uti.edu.utifact.database.databadeentity.Productobd
+import ec.uti.edu.utifact.database.databadeentity.Userbd
+import ec.uti.edu.utifact.databasebd
+import ec.uti.edu.utifact.entity.User
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.math.BigInteger
+import java.security.MessageDigest
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 class LoginActivity : AppCompatActivity() {
-    val dbHelper = database(this)
+    val dbHelper = databasebd(this)
+    private lateinit var db: AppDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         // Insertar un usuario
-        val userId = dbHelper.insertUsuarioIfNotExists("admin", "admin123", 1)
+        /*val userId = dbHelper.insertUsuarioIfNotExists("admin", "admin123", 1)
         if (userId != -1L) {
             println("Usuario insertado con ID: $userId")
         } else {
@@ -74,6 +92,83 @@ class LoginActivity : AppCompatActivity() {
             println("Producto insertado con ID: $productId")
         } else {
             println("El Producto ya existe.")
+        }*/
+        // Inicializar Room
+        db = AppDatabase.getDatabase(this)
+
+        // Insertar datos iniciales en una corrutina
+        CoroutineScope(Dispatchers.IO).launch {
+            if(db.userDao().findByUser("admin") == null){
+                val password = "admin123".toMD5()
+                println("password: $password")
+                if (db.userDao().insert(Userbd(user = "admin", password = password, fechaCreacion =obtenerFechaActual(), fechaCaducidad = obtenerFechaMas() , rol = 1)) != -1L) {
+                    println("Usuario admin insertado.")
+                }
+            } else {
+                println("El usuario admin ya existe.")
+            }
+            if(db.userDao().findByUser("user") == null){
+                val password = "user".toMD5()
+                println("password: $password")
+                if (db.userDao().insert(Userbd(user = "user", password = password,fechaCreacion =obtenerFechaActual(), fechaCaducidad = obtenerFechaMas() , rol = 2)) != -1L) {
+                    println("Usuario user insertado.")
+                }
+            } else {
+                println("El usuario user ya existe.")
+            }
+
+            if(db.emisorDao().findById(1) == null){
+
+                if (db.emisorDao().insert(Emisorbd(
+                        razonSocial="Mi Empresa",
+                        direccion="Av. Principal",
+                        telefono="0987654321",
+                        correo="empresa@ejemplo.com",
+                        ruc= "1234567890",
+                        sucursal="1",
+                        puntoEmision="001"
+                    )) != -1L) {
+                    println("emisor emisorbd insertado.")
+                }
+            } else {
+                println("El EMISOR emisorbd ya existe.")
+            }
+
+            if(db.clienteDao().findByCedula("1234567890")==null){
+                if (db.clienteDao().insert(Clientebd(
+                        nombresClient="Juan Perez",
+                        direccionClient="Calle 123",
+                        correoClient="juan.perez@example.com",
+                        cedulaClient="1234567890",
+                        telefonoClient="0999999999")) != -1L) {
+                    println("Cliente clientebd insertado.")
+                }
+            }else {
+                println("El clientebd ya existe.")
+            }
+
+            val producto = db.productoDao().findByCode("producto1")
+            if (producto==null) { // Si no hay productos con el código "producto1"
+                for (i in 1..10) {
+                    val result = db.productoDao().insert(
+                        Productobd(
+                            codeProduct = "producto$i",
+                            nameProduct = "Prueba Producto $i",
+                            proveedor = "provedor${i}p",
+                            stock = 50,
+                            precio = 20.05
+                        )
+                    )
+                    if (result != -1L) {
+                        println("Producto producto$i insertado.")
+                    } else {
+                        println("Error al insertar producto producto$i.")
+                    }
+                }
+            } else {
+                println("El productobd user ya existe: $producto")
+            }
+
         }
 
         //vista general
@@ -86,42 +181,60 @@ class LoginActivity : AppCompatActivity() {
 
     fun onLogin(view: View) {
         val username = findViewById<EditText>(R.id.extUser).text.toString()
-        val password = findViewById<EditText>(R.id.extPass).text.toString()
+        val password = findViewById<EditText>(R.id.extPass).text.toString().toMD5()
         val warningsView = findViewById<TextView>(R.id.txtwarnin)
 
         if (username.isNotEmpty() && password.isNotEmpty()) {
-            val userData = dbHelper.validateUsuario(username, password)
-            if (userData != null) {
-                warningsView.text = "Datos Correctos"
-                warningsView.setTextColor(ContextCompat.getColor(this, R.color.green))
 
-                // Guardar el estado de login y los datos del usuario
-                dbHelper.saveLoginState(this, true, userData)
+            CoroutineScope(Dispatchers.IO).launch {
+                val user = db.userDao().validateUsuario(username, password)
+                withContext(Dispatchers.Main) {
+                    if (user != null) {
+                        warningsView.text = "Datos Correctos"
+                        warningsView.setTextColor(ContextCompat.getColor(this@LoginActivity, R.color.green))
 
-                val userRole = userData[3]
-                println("id del usuario: ${userData[0]}")
-                val intent = when (userRole) {
-                    "1" ->{
-                        Intent(this, AdminActivity::class.java) // Redirigir al administrador
-                    }
-                    "2" -> {
-                        Intent(this, UserActivity::class.java) // Redirigir al usuario
-                    }
-                    else -> {
-                        warningsView.text = "Rol no válido"
-                        warningsView.setTextColor(ContextCompat.getColor(this, R.color.red))
-                        return
+                        val intent = when (user.rol) {
+                            1 -> {
+                                println("id del usuario: ${user.id}")
+                                val intent = Intent(this@LoginActivity, AdminActivity::class.java)
+                                startActivity(intent)
+                            }
+                            2 -> {
+                                println("id del usuario: ${user.id}")
+                                val intent = Intent(this@LoginActivity, UserActivity::class.java)
+                                startActivity(intent)
+                            }else ->{
+                                Toast.makeText(this@LoginActivity, "Rol no válido", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                        finish()
+                    } else {
+                        warningsView.text = "Datos incorrectos"
+                        warningsView.setTextColor(ContextCompat.getColor(this@LoginActivity, R.color.blue))
                     }
                 }
-                startActivity(intent)
-                finish()
-            } else {
-                warningsView.text = "Datos incorrectos"
-                warningsView.setTextColor(ContextCompat.getColor(this, R.color.yellow))
             }
         } else {
             warningsView.text = "Ingrese sus credenciales correctamente"
             warningsView.setTextColor(ContextCompat.getColor(this, R.color.orange))
+
         }
+    }
+    fun obtenerFechaActual(): String {
+        val formato = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        return formato.format(Date()) // Obtiene la fecha actual
+    }
+    fun obtenerFechaMas(): String {
+        val formato = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()) // Formato de fecha
+        val calendario = Calendar.getInstance() // Obtiene la fecha actual
+        calendario.add(Calendar.YEAR, 5) // Suma 10 años a la fecha actual
+        return formato.format(calendario.time) // Devuelve la fecha como String
+    }
+
+    fun String.toMD5(): String {
+        val md = MessageDigest.getInstance("MD5")
+        val digest = md.digest(this.toByteArray())
+        val bigInt = BigInteger(1, digest)
+        return bigInt.toString(16).padStart(32, '0')
     }
 }

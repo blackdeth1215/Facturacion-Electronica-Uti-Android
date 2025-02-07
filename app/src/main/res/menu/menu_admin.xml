@@ -3,7 +3,8 @@
     <item
         android:id="@+id/nav_usuarios"
         android:title="@string/usuarios"
-        android:icon="@drawable/baseline_add_circle_outline_24" />
+        android:icon="@drawable/baseline_add_circle_outline_24"
+        android:titleTextColor="@color/white" />
     <item
         android:id="@+id/nav_clientes"
         android:title="@string/clientes"
@@ -30,6 +31,6 @@
         android:icon="@drawable/info" />
     <item
         android:id="@+id/nav_iniciar_sesion"
-        android:title="@string/iniciar_sesi_n"
+        android:title="@string/cerrar_sesion"
         android:icon="@drawable/logout" />
 </menu>

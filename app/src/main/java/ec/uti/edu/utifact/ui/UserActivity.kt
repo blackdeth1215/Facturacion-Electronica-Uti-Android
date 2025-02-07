@@ -20,19 +20,21 @@ import com.google.android.material.navigation.NavigationView
 import ec.edu.uti.facturacionelectronica.fragments.FragmentFirst
 import ec.edu.uti.facturacionelectronica.fragments.FragmentInformation
 import ec.uti.edu.utifact.R
-import ec.uti.edu.utifact.database
-import ec.uti.edu.utifact.fragments.FragmentUser
+import ec.uti.edu.utifact.databasebd
+import ec.uti.edu.utifact.fragments.FragmentClient
+import ec.uti.edu.utifact.fragments.FragmentFacturar
+import ec.uti.edu.utifact.fragments.FragmentProducto
+import ec.uti.edu.utifact.fragments.FragmentReport
 
 class UserActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var drawerLayout: DrawerLayout
-    val dbHelper = database(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_users)
 
-        dbHelper.checkLoginState(this)
+
         val toolbar = findViewById<Toolbar>(R.id.toolbar) // Toolbar
         setSupportActionBar(toolbar)
 
@@ -63,18 +65,35 @@ class UserActivity : AppCompatActivity() {
                 }
                 R.id.nav_reportes -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, FragmentUser())
+                        .replace(R.id.fragment_container, FragmentReport())
                         .addToBackStack(null)
                         .commit()
                 }
-                R.id.nav_clientes -> showToast("Clientes")
-                R.id.nav_facturacion -> showToast("Facturación")
+                R.id.nav_clientes -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, FragmentClient())
+                        .addToBackStack(null)
+                        .commit()
+                }
+                R.id.nav_productos -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, FragmentProducto())
+                        .addToBackStack(null)
+                        .commit()
+                }
+                R.id.nav_facturacion -> {
+                    // Reemplazar el fragmento
+                    val fragment = FragmentFacturar()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, fragment)
+                        .addToBackStack(null)
+                        .commit()
+
+                    true
+                }
                 R.id.nav_iniciar_sesion -> {
-                    dbHelper.logout(this)
-                    val intent = Intent(this, LoginActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-                    finish()
+                    val login = Intent(this, LoginActivity::class.java)
+                    startActivity(login)
                 }
             }
             drawerLayout.closeDrawer(GravityCompat.START)

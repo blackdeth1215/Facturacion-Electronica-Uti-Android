@@ -7,13 +7,14 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ec.uti.edu.utifact.R
+import ec.uti.edu.utifact.database.databadeentity.Productobd
 import ec.uti.edu.utifact.entity.Producto
 
 
 class ProductoAdapter(
-    private val productos: List<Producto>,
-    private val onEditClick: (Producto) -> Unit,
-    private val onDeleteClick: (Producto) -> Unit
+    private val productos: List<Productobd>,
+    private val onEditClick: (Productobd) -> Unit,
+    private val onDeleteClick: (Productobd) -> Unit
 ) : RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoViewHolder {
@@ -35,8 +36,8 @@ class ProductoAdapter(
     override fun getItemCount(): Int = productos.size
 
     class ProductoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(producto: Producto) {
-            itemView.findViewById<TextView>(R.id.txtProducto).text = producto.nombre
+        fun bind(producto: Productobd) {
+            itemView.findViewById<TextView>(R.id.txtProducto).text = producto.nameProduct
             itemView.findViewById<TextView>(R.id.txtStock).text = producto.stock.toString()
         }
     }

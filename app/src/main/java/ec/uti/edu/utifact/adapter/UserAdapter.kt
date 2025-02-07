@@ -7,12 +7,12 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ec.uti.edu.utifact.R
-import ec.uti.edu.utifact.entity.User
+import ec.uti.edu.utifact.database.databadeentity.Userbd
 
 class UserAdapter(
-    private val users: List<User>,
-    private val onEditClick: (User) -> Unit,
-    private val onDeleteClick: (User) -> Unit
+    private val users: List<Userbd>,
+    private val onEditClick: (Userbd) -> Unit,
+    private val onDeleteClick: (Userbd) -> Unit
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -34,7 +34,7 @@ class UserAdapter(
     override fun getItemCount(): Int = users.size
 
     class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(user: User) {
+        fun bind(user: Userbd) {
             println("Usuario a mostrar: ${user.user}")
             itemView.findViewById<TextView>(R.id.txtUsuario).text = user.user
         }

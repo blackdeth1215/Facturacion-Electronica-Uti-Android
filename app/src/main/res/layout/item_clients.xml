@@ -8,27 +8,28 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardCliente"
-        android:layout_width="323dip"
-        android:layout_height="59dip"
-        android:layout_margin="8dp"
-        android:background="#FDFDFD"
-        android:backgroundTint="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_margin"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
         android:hapticFeedbackEnabled="false"
-        app:cardCornerRadius="11dp"
-        android:layout_marginTop="64dp"
-        app:cardElevation="4dip">
+        app:cardCornerRadius="@dimen/activity_radius"
+        app:cardElevation="@dimen/cardview_default_elevation">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:padding="@dimen/activity_margin"
             android:orientation="horizontal">
+
 
             <TextView
                 android:id="@+id/txtCliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dip"
+                android:layout_marginStart="50dip"
                 android:text="@string/cliente"
                 android:textColor="@color/black"
                 android:textAlignment="center" />
@@ -47,11 +48,12 @@
 
                 <ImageButton
                     android:id="@+id/imgEdit"
-                    android:layout_width="28dp"
-                    android:layout_height="25dp"
+                    android:layout_width="@dimen/activity_withitem_img"
+                    android:layout_height="@dimen/activity_heightitem_img"
                     android:background="@color/transparent"
                     android:contentDescription="@string/edit_client"
-                    app:srcCompat="@drawable/baseline_arrow_circle_right_24" />
+                    android:layout_marginRight="@dimen/activity_margin_rigth"
+                    app:srcCompat="@drawable/baseline_edit_24" />
 
                 <ImageButton
                     android:id="@+id/imgDelete"
@@ -59,7 +61,8 @@
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
                     android:contentDescription="@string/delete_client"
-                    app:srcCompat="@drawable/baseline_arrow_circle_left_24" />
+                    android:layout_marginRight="@dimen/activity_margin_rigth"
+                    app:srcCompat="@drawable/baseline_delete_forever_24" />
             </LinearLayout>
 
         </LinearLayout>

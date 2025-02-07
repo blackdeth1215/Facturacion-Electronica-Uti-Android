@@ -16,10 +16,6 @@
         android:title="@string/reportes"
         android:icon="@drawable/reporte_search" />
     <item
-        android:id="@+id/nav_emisor"
-        android:title="@string/emisor"
-        android:icon="@drawable/empresa_info" />
-    <item
         android:id="@+id/nav_informacion"
         android:title="@string/informacion"
         android:icon="@drawable/info" />

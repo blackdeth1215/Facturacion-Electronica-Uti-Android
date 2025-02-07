@@ -8,64 +8,48 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
+        android:padding="@dimen/activity_padding"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:text="@string/ingreProd" />
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="90dip"
-            android:layout_marginTop="30dip"
-            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextText"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_toplog"
+                android:layout_weight="3"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/codProd"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/orange" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnBusProd"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autofillHints="name"
-                android:ems="10"
-                android:inputType="number"
-                android:textColor="@color/black"
-                android:textColorHint="@color/orange"
-                android:textAlignment="center"
-                android:hint="@string/codProd" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/btnBusProd"
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#F47121"
-                    android:onClick="onBuscarCliente"
-                    android:text="@string/buscar" />
-
-                <Button
-                    android:id="@+id/btnAddProd"
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#F47121"
-                    android:text="@string/agregar" />
-            </LinearLayout>
-
+                android:layout_weight="2"
+                android:backgroundTint="@color/orange"
+                android:textColor="@color/white"
+                android:text="@string/buscar" />
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="@dimen/activity_margin"
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView

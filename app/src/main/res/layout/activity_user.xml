@@ -7,65 +7,50 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="@dimen/activity_padding"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:text="@string/ingreUsu" />
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="90dip"
-            android:layout_marginTop="30dip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
+            android:weightSum="3"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextText"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
+                android:layout_weight="3"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtUserB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="name"
+                    android:ems="10"
+                    android:hint="@string/usuario"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/orange" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnBusUser"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autofillHints="name"
-                android:ems="10"
-                android:inputType="number"
-                android:textColor="@color/black"
-                android:textColorHint="@color/orange"
-                android:textAlignment="center"
-                android:hint="@string/usuario" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/btnBusUser"
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#F47121"
-                    android:onClick="onBuscarCliente"
-                    android:text="@string/buscar" />
-
-                <Button
-                    android:id="@+id/btnAddUser"
-                    android:layout_width="117dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#F47121"
-                    android:text="@string/agregar" />
-            </LinearLayout>
+                android:layout_weight="1"
+                android:backgroundTint="@color/orange"
+                android:textColor="@color/white"
+                android:text="@string/buscar" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="@dimen/activity_margin"
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView

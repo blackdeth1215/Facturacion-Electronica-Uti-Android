@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="activity_padding">24dip</dimen>
+    <dimen name="activity_margin">12dip</dimen>
+    <dimen name="activity_margin_top">50sp</dimen>
+    <dimen name="activity_heint_nambar">270dp</dimen>
+    <dimen name="activity_toplog">3sp</dimen>
+    <dimen name="activity_withlogin">124dip</dimen>
+    <dimen name="activity_heightlogin">207dp</dimen>
+    <dimen name="activity_withitem_img">28dp</dimen>
+    <dimen name="activity_heightitem_img">25dp</dimen>
+    <dimen name="activity_margin_top_activityregu">20dp</dimen>
+    <dimen name="activity_radius">11dp</dimen>
+    <dimen name="activity_dimentions">4dip</dimen>
+    <dimen name="activity_start">50dip</dimen>
+    <dimen name="activity_margin_rigth">25dp</dimen>
 </resources>

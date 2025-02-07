@@ -8,76 +8,141 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
+        android:padding="@dimen/activity_padding"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/emisor" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/txtEmiRuc"
-            android:layout_width="179dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:autofillHints="name"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="@string/ruc"
-            android:textColorHint="@color/orange"
-            android:textAlignment="center" />
-        <EditText
-            android:id="@+id/txtEmiName"
-            android:layout_width="179dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:autofillHints="name"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="@string/razSoc"
-            android:textColorHint="@color/orange"
-            android:textAlignment="center" />
-        <EditText
-            android:id="@+id/txtEmiDirec"
-            android:layout_width="179dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:autofillHints="name"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="@string/direccion"
-            android:textColorHint="@color/orange"
-            android:textAlignment="center" />
-        <EditText
-            android:id="@+id/txtEmiCorr"
-            android:layout_width="179dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:autofillHints="name"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="@string/correo"
-            android:textColorHint="@color/orange"
-            android:textAlignment="center" />
-        <EditText
-            android:id="@+id/txtEmiTel"
-            android:layout_width="179dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:autofillHints="name"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="@string/telefono"
-            android:textColorHint="@color/orange"
-            android:textAlignment="center" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmiRuc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="13"
+                android:hint="@string/ruc"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColor="@color/orange"
+                android:textColorHint="@color/orange"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_margin_top_activityregu"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmiName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="@string/razSoc"
+                android:textColorHint="@color/orange"
+                android:textColor="@color/orange"
+                android:textAlignment="center"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_margin_top_activityregu"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmiDirec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="@string/direccion"
+                android:textColorHint="@color/orange"
+                android:textColor="@color/orange"
+                android:textAlignment="center"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_margin_top_activityregu"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmiSucur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="@string/sucursal"
+                android:textColorHint="@color/orange"
+                android:textColor="@color/orange"
+                android:textAlignment="center"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_margin_top_activityregu"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmiPunto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="@string/punto_de_emisi_n"
+                android:textColorHint="@color/orange"
+                android:textColor="@color/orange"
+                android:textAlignment="center"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_margin_top_activityregu"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmiCorr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="@string/correo"
+                android:textColorHint="@color/orange"
+                android:textColor="@color/orange"
+                android:textAlignment="center"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_margin_top_activityregu"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmiTel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="name"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="@string/telefono"
+                android:textColorHint="@color/orange"
+                android:textColor="@color/orange"
+                android:textAlignment="center"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/button4"
-            android:layout_width="117dp"
+            android:id="@+id/btnGuardarEmi"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/orange"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/activity_margin_top_activityregu"
+            android:textColor="@color/white"
             android:text="@string/editar" />
 
     </LinearLayout>
